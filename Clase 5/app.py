@@ -2,10 +2,16 @@
 #caracteres especiales
 
 
-from flask import Flask, render_template, request
+from flask import Flask, jsonify, request
+from login import logint
+from logout import logout
+
 
 app = Flask(__name__)
 
+##Se expone el blueprint de login
+app.register_blueprint(logint)
+app.register_blueprint(logout)
 @app.route('/', methods=['GET'])
 
 def unida():
